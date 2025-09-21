@@ -58,6 +58,11 @@
                            onclick="return confirm('¿Estás seguro que quieres eliminar este usuario?');">
                            Eliminar
                         </a>
+                        <!-- Botón Editar -->
+                        <a th:href="@{'/usuarios/editar/' + ${usuario.id}}" 
+                           class="btn btn-warning btn-sm">
+                           Editar
+                        </a>
                     </td>
                 </tr>
             </tbody>

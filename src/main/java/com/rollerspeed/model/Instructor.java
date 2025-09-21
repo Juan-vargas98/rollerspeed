@@ -3,6 +3,8 @@ package com.rollerspeed.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "instructores")
 public class Instructor {
@@ -13,12 +15,11 @@ public class Instructor {
     private String nombre;
     private String correo;
     private String telefono;
-    private LocalDate fechaNacimiento;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaNacimiento;;
 
-    // Constructor vacío (necesario para JPA)
     public Instructor() {}
 
-    // Getters y setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
