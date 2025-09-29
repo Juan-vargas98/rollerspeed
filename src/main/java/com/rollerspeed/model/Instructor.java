@@ -15,8 +15,6 @@ public class Instructor {
     private String nombre;
     private String correo;
     private String telefono;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaNacimiento;;
 
     public Instructor() {}
 
@@ -32,6 +30,4 @@ public class Instructor {
     public String getTelefono() { return telefono; }
     public void setTelefono(String telefono) { this.telefono = telefono; }
 
-    public LocalDate getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 }

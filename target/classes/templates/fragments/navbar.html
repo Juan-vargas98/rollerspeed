@@ -1,3 +1,4 @@
+<!-- resources/templates/fragments/navbar.html -->
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
         <!-- Logo -->
@@ -11,9 +12,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menú -->
+        <!-- Menú principal -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav me-auto">
 
                 <!-- Institucional -->
                 <li class="nav-item dropdown">
@@ -54,25 +55,26 @@
                     </ul>
                 </li>
 
-                <!-- Registros -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Registros</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/registros/nuevo}">Nuevo Registro</a></li>
-                        <li><a class="dropdown-item" th:href="@{/registros/listar}">Lista de Registros</a></li>
-                    </ul>
-                </li>
-
-                <!-- Asistencias -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Asistencias</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/asistencias/nuevo}">Registrar Asistencia</a></li>
-                        <li><a class="dropdown-item" th:href="@{/asistencias/listar}">Lista de Asistencias</a></li>
-                    </ul>
-                </li>
-
             </ul>
+
+            <!-- Usuario logueado y logout -->
+            <ul class="navbar-nav ms-auto">
+                <!-- Si hay usuario autenticado -->
+                <li class="nav-item" th:if="${#authentication != null}">
+                    <span class="nav-link text-white">Hola, <b th:text="${#authentication.name}">Usuario</b></span>
+                </li>
+                <li class="nav-item" th:if="${#authentication != null}">
+                    <form th:action="@{/logout}" method="post" class="d-inline ms-2">
+                        <button class="btn btn-sm btn-outline-light" type="submit">Cerrar sesión</button>
+                    </form>
+                </li>
+
+                <!-- Si no hay usuario autenticado -->
+                <li class="nav-item" th:if="${#authentication == null}">
+                    <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </nav>

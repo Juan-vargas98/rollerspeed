@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Editar Usuario</h2>
@@ -38,10 +38,6 @@
                         <option value="Otro"
                             th:selected="${usuario.genero == 'Otro'}">Otro</option>
                     </select>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" th:field="*{fechaNacimiento}" class="form-control" required>
                 </div>
             </div>
 
