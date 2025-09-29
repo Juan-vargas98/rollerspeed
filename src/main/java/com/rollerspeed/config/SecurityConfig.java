@@ -16,22 +16,21 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
-                // Login y registro (públicos)
+              
                 .requestMatchers("/login", "/usuarios/registro", "/usuarios/nuevo", "/usuarios/guardar").permitAll()
                 
-                // Swagger (si lo quieres público, opcional)
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
-                // Todo lo demás requiere login
+
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")                  // tu login.html personalizado
-                .defaultSuccessUrl("/", true)         // a dónde ir después de loguearse
+                .loginPage("/login")                  
+                .defaultSuccessUrl("/", true)        
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")    // vuelve al login tras cerrar sesión
+                .logoutSuccessUrl("/login?logout")    
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
