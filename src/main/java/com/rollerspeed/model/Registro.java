@@ -3,6 +3,8 @@ package com.rollerspeed.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "registros")
 public class Registro {
@@ -12,12 +14,15 @@ public class Registro {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"asistencias", "registros"})
     private Usuario usuario;
 
     @ManyToOne
+    @JsonIgnoreProperties({"horarios", "instructor"})
     private Clase clase; 
 
     @ManyToOne
+    @JsonIgnoreProperties("clases")
     private Horario horario; 
 
     private LocalDate fechaRegistro = LocalDate.now();

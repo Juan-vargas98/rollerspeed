@@ -28,7 +28,7 @@
 <body>
 
 <!-- Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <!-- Contenido principal -->
 <div class="content">
@@ -40,7 +40,6 @@
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Teléfono</th>
-                    <th>Fecha de Nacimiento</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -49,7 +48,6 @@
                     <td th:text="${ins.nombre}"></td>
                     <td th:text="${ins.correo}"></td>
                     <td th:text="${ins.telefono}"></td>
-                    <td th:text="${ins.fechaNacimiento}"></td>
                     <td class="text-center">
                         
                         <a th:href="@{'/instructores/editar/' + ${ins.id}}" 

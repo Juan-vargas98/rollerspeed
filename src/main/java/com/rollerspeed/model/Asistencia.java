@@ -1,5 +1,7 @@
 package com.rollerspeed.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,9 +12,11 @@ public class Asistencia {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"asistencias", "registros"})
     private Usuario alumno;
 
     @ManyToOne
+    @JsonIgnoreProperties({"horarios", "instructor"})
     private Clase clase;
 
     private Boolean presente;

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div class="container mt-5">
     <h2 class="text-center mb-4" th:text="${asistencia.id != null} ? 'Editar Asistencia' : 'Nueva Asistencia'">Nueva Asistencia</h2>

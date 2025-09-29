@@ -24,7 +24,7 @@
 <body>
 
 <!-- Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <!-- Contenido principal -->
 <div class="content">
@@ -36,7 +36,6 @@
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Género</th>
-                    <th>Fecha de Nacimiento</th>
                     <th>Teléfono</th>
                     <th>Rol</th>
                     <th>Clase</th>
@@ -48,7 +47,6 @@
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.correo}"></td>
                     <td th:text="${usuario.genero}"></td>
-                    <td th:text="${usuario.fechaNacimiento}"></td>
                     <td th:text="${usuario.telefono}"></td>
                     <td th:text="${usuario.rol}"></td>
                     <td th:text="${usuario.clase}"></td>
